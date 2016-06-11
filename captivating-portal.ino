@@ -50,7 +50,10 @@ String files[] = {
   "<body>\n"
   "  <h1>Welcome to Captivating Portal</h1>\n"
   "  <div class=\"msg\">This is the</div>\n"
-  "  <div id=\"count\"></div>\n"
+  "  <script>\n"
+  "    var c = localStorage.getItem('count')\n"
+  "    document.write('<div id=\"count\">'+(c||'')+'</div>')\n"
+  "  </script>\n"
   "  <div class=\"msg\">browser to be captivated.</div>\n"
   "  <div id=\"cherish\">\n"
   "    Cherish this captive portal. Keep it with you always.\n"
@@ -70,13 +73,14 @@ String files[] = {
   "\n",
 
   // script.js
-  "function getCount () {\n"
+    "function getCount () {\n"
   "  var req = request('/count.txt')\n"
   "  if (req.status === 200) {\n"
   "    var stndrdth = /1.$/.test(req.responseText) ? 'th' : {\n"
   "      1: 'st', 2: 'nd', 3: 'rd'\n"
   "    }[req.responseText.substr(-1)] || 'th'\n"
   "    var nth = req.responseText + stndrdth\n"
+  "    localStorage.setItem('count', nth)\n"
   "    count.textContent = nth\n"
   "  }\n"
   "}\n"
