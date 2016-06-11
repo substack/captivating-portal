@@ -149,7 +149,8 @@ void setup () {
     webServer.send(200, "application/javascript", files[1]);
   });
   webServer.on("/count.txt", []() {
-    webServer.send(200, "text/plain", String(count));
+    webServer.send(200, "text/plain", String(++count));
+    setCount(count);
   });
   webServer.onNotFound([]() {
     webServer.send(200, "text/html", files[0]);
