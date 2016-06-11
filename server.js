@@ -11,9 +11,10 @@ if (count === 0) fs.writeFileSync(countFile, String(count))
 
 var st = ecstatic({
   root: __dirname + '/public',
-  cache: 9999999999999999999
+  cache: 4e9
 })
 http.createServer(function (req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*')
   if (req.url === '/') {
     fs.writeFile(countFile, String(++count), function (err) {
       st(req, res)
