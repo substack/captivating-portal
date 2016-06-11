@@ -5,6 +5,7 @@ function getCount () {
       1: 'st', 2: 'nd', 3: 'rd'
     }[req.responseText.substr(-1)] || 'th'
     var nth = req.responseText + stndrdth
+    localStorage.setItem('count', nth)
     count.textContent = nth
   }
 }

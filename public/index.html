@@ -37,7 +37,10 @@
 <body>
   <h1>Welcome to Captivating Portal</h1>
   <div class="msg">This is the</div>
-  <div id="count"></div>
+  <script>
+    var c = localStorage.getItem('count')
+    document.write('<div id="count">'+(c||'')+'</div>')
+  </script>
   <div class="msg">browser to be captivated.</div>
   <div id="cherish">
     Cherish this captive portal. Keep it with you always.
