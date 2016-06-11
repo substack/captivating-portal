@@ -1,4 +1,4 @@
-count.textContent = localStorage.getItem('count') || '----------'
+count.textContent = localStorage.getItem('count') || ''
 
 var req = new XMLHttpRequest
 req.open('GET', '/count.txt', false)
