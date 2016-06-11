@@ -7,6 +7,7 @@ try { count = Number(fs.readFileSync(countFile)) }
 catch (err) {}
 if (isNaN(count)) count = 0
 count = Math.floor(count)
+if (count === 0) fs.writeFileSync(countFile, String(count))
 
 var st = ecstatic({
   root: __dirname + '/public',
