@@ -1,11 +1,11 @@
-count.textContent = localStorage.getItem('count') || ''
-
 var req = new XMLHttpRequest
 req.open('GET', '/count.txt', false)
 req.send(null)
 
 if (req.status === 200) {
-  count.textContent = req.responseText
-  console.log('SET', req.responseText)
-  localStorage.setItem('count', req.responseText)
+  var stndrdth = /1.$/.test(req.responseText) ? 'th' : {
+    1: 'st', 2: 'nd', 3: 'rd'
+  }[req.responseText.substr(-1)] || 'th'
+  var nth = req.responseText + stndrdth
+  count.textContent = nth
 }
