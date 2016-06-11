@@ -3,3 +3,6 @@ CACHE MANIFEST
 /manifest.appcache
 /script.js
 /count.txt
+
+NETWORK:
+/check.txt

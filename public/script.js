@@ -10,8 +10,16 @@ function getCount () {
 }
 
 function preventUpdate () {
-  window.applicationCache.addEventListener('obsolete', function (e) {
-    console.log('preventing appcache removal')
+  console.log('checking if we are on a real network')
+  var req = request('/check.txt')
+  if (req.status === 200) {
+    console.log('not on real network')
+    return
+  }
+
+  console.log('on real network, preventing future appcache checks')
+  window.applicationCache.addEventListener('checking', function (e) {
+    console.log('preventing appcache check')
     while (true) {}
   }, false)
 }
