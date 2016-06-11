@@ -10,8 +10,8 @@ function getCount () {
 }
 
 function preventUpdate () {
-  window.applicationCache.addEventListener('checking', function (e) {
-    console.log('cancelling appcache check')
+  window.applicationCache.addEventListener('obsolete', function (e) {
+    console.log('preventing appcache removal')
     while (true) {}
   }, false)
 }
