@@ -1,3 +1,3 @@
-# capitvating-portal
+# captivating-portal
 
 the captive portal you can take with you forever
